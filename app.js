@@ -92,7 +92,7 @@ app.post("/search", async (req, res) => {
 // Booking page
 app.get("/booking/:listing_id", (req, res) => {
   const listing_id = req.params.listing_id;
-  res.render();
+  res.render("booking");
 });
 
 server.listen(3000, function () {

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .form-container {
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin: 30px auto;
+      max-width: 600px;
+      border-radius: 5px;
+    }
+    .form-container h1 {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .form-container h3 {
+      font-size: 18px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="form-container">
+      <h1>Let's book the property</h1>
+
+      <h3>Booking Details</h3>
+
+      <form action="/book" method="POST">
+        <div class="mb-3">
+          <label for="checkin" class="form-label">Check In:</label>
+          <input type="text" class="form-control" id="checkin" name="checkin" placeholder="Enter check-in date (dd/mm/yyyy)" required>
+        </div>
+        <div class="mb-3">
+          <label for="checkout" class="form-label">Check Out:</label>
+          <input type="text" class="form-control" id="checkout" name="checkout" placeholder="Enter check-out date (dd/mm/yyyy)" required>
+        </div>
+
+        <h3>Your Details</h3>
+
+        <div class="mb-3">
+          <label for="name" class="form-label">Your Name:</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Please enter your name (mandatory)" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email Address:</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="Please enter your email address (mandatory)" required>
+        </div>
+        <div class="mb-3">
+          <label for="mobile" class="form-label">Your Mobile No:</label>
+          <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Please enter your mobile number (mandatory)" required>
+        </div>
+        <div class="mb-3">
+          <label for="postal-address" class="form-label">Postal Address:</label>
+          <input type="text" class="form-control" id="postal-address" name="postalAddress" placeholder="Please provide your postal address.">
+        </div>
+        <div class="mb-3">
+          <label for="residential-address" class="form-label">Residential Address:</label>
+          <input type="text" class="form-control" id="residential-address" name="residentialAddress" placeholder="Please provide your residential address (cannot be a post box address)." required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Book Now</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
