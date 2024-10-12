@@ -91,7 +91,37 @@ app.post("/search", async (req, res) => {
 
 // Booking page
 app.get("/booking/:listing_id", (req, res) => {
-  res.render("booking");
+  const listing_id = req.params.listing_id
+  res.render("booking", {
+    listing_id : listing_id
+  });
+});
+
+// booking functionality
+app.post('/book/:listing_id', async (req, res) => {
+  const propertyId = req.params.listing_id;
+  console.log('Booking for property ID:', propertyId);
+  
+  const { checkin, checkout, name, email, mobile, postalAddress, residentialAddress } = req.body;
+
+  const booking_info = {
+    arrival_date: new Date(checkin).toISOString(),
+    departure_date: new Date(checkout).toISOString(),
+    client: {
+      name: name,
+      email_address: email,
+      mobile_number: mobile,
+      postal_address: postalAddress,
+      home_address: residentialAddress,
+    }
+  };
+  try {
+    await db.collection('listingsAndReviews').insertOne(booking_info);
+    res.send('Booking successful! Your information has been saved.');
+  } catch (error) {
+    console.error('Error saving booking:', error);
+    res.status(500).send('An error occurred while saving your booking.');
+  }
 });
 
 server.listen(3000, function () {

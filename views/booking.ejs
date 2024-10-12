@@ -32,34 +32,41 @@
 
       <h3>Booking Details</h3>
 
-      <form action="/book/<%= propertyId %>" method="POST">
-        <h2>Let's book the property</h2>
-        <h3>Booking Details</h3>
-        <label for="checkin">Check In:</label>
-        <input type="datetime-local" name="checkin" required>
-        
-        <label for="checkout">Check Out:</label>
-        <input type="datetime-local" name="checkout" required>
-        
+      <form action="/book/<%= listing_id %>" method="POST">
+        <div class="mb-3">
+          <label for="checkin" class="form-label">Check In:</label>
+          <input type="datetime-local" class="form-control" id="checkin" name="checkin" placeholder="Enter check-in date (dd/mm/yyyy)" required>
+        </div>
+        <div class="mb-3">
+          <label for="checkout" class="form-label">Check Out:</label>
+          <input type="datetime-local" class="form-control" id="checkout" name="checkout" placeholder="Enter check-out date (dd/mm/yyyy)" required>
+        </div>
+
         <h3>Your Details</h3>
-        <label for="name">Your Name:</label>
-        <input type="text" name="name" required>
-        
-        <label for="email">Email Address:</label>
-        <input type="email" name="email" required>
-        
-        <label for="mobile">Your Mobile No:</label>
-        <input type="text" name="mobile" required>
-        
-        <label for="postalAddress">Postal Address:</label>
-        <input type="text" name="postalAddress" required>
-        
-        <label for="residentialAddress">Residential Address:</label>
-        <input type="text" name="residentialAddress" required>
-        
-        <button type="submit">Book Now</button>
+
+        <div class="mb-3">
+          <label for="name" class="form-label">Your Name:</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Please enter your name (mandatory)" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email Address:</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="Please enter your email address (mandatory)" required>
+        </div>
+        <div class="mb-3">
+          <label for="mobile" class="form-label">Your Mobile No:</label>
+          <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Please enter your mobile number (mandatory)" required>
+        </div>
+        <div class="mb-3">
+          <label for="postal-address" class="form-label">Postal Address:</label>
+          <input type="text" class="form-control" id="postal-address" name="postalAddress" placeholder="Please provide your postal address.">
+        </div>
+        <div class="mb-3">
+          <label for="residential-address" class="form-label">Residential Address:</label>
+          <input type="text" class="form-control" id="residential-address" name="residentialAddress" placeholder="Please provide your residential address (cannot be a post box address)." required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Book Now</button>
       </form>
-      
     </div>
   </div>
 
