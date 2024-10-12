@@ -121,7 +121,7 @@ app.post('/book/:listing_id', async (req, res) => {
       { $push: { bookings: booking_info } }
     );
 
-    res.redirect(`/confirmation/${propertyId}`);
+    res.redirect(`/booking-confirmation/${propertyId}`);
   } catch (error) {
     console.error('Error saving booking:', error);
     res.status(500).send('An error occurred while saving your booking.');
@@ -129,9 +129,9 @@ app.post('/book/:listing_id', async (req, res) => {
 });
 
 // confirmation page
-app.get('/confirmation/:listing_id', (req, res) => {
+app.get('/booking-confirmation/:listing_id', (req, res) => {
   const propertyId = req.params.listing_id;
-  res.render('confirmation', { propertyId });
+  res.render('booking-confirmation', { propertyId });
 });
 
 server.listen(3000, function () {
