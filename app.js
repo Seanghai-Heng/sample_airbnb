@@ -116,7 +116,11 @@ app.post('/book/:listing_id', async (req, res) => {
     }
   };
   try {
-    await db.collection('listingsAndReviews').insertOne(booking_info);
+    await db.collection('listingsAndReviews').updateOne(
+      { _id: propertyId },
+      { $push: { bookings: booking_info } }
+    );
+
     res.send('Booking successful! Your information has been saved.');
   } catch (error) {
     console.error('Error saving booking:', error);
