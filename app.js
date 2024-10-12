@@ -121,11 +121,17 @@ app.post('/book/:listing_id', async (req, res) => {
       { $push: { bookings: booking_info } }
     );
 
-    res.send('Booking successful! Your information has been saved.');
+    res.redirect(`/confirmation/${propertyId}`);
   } catch (error) {
     console.error('Error saving booking:', error);
     res.status(500).send('An error occurred while saving your booking.');
   }
+});
+
+// confirmation page
+app.get('/confirmation/:listing_id', (req, res) => {
+  const propertyId = req.params.listing_id;
+  res.render('confirmation', { propertyId });
 });
 
 server.listen(3000, function () {
